@@ -29,8 +29,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/rclone-ui/rclone-ui.git
-        tag: v2.7.25
-        commit: 4fe90cb7542745b3c4686271495d7e64c998892d
+        tag: v2.7.28
+        commit: 385ec98316d9a7f998fcd17c5f1570e4b75e8eea
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
