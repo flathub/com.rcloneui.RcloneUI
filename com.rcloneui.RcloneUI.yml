@@ -47,6 +47,8 @@ modules:
         TAURI_CLI_NO_DEV_SERVER_WAIT: 'true'
         TAURI_LINUX_AYATANA_APPINDICATOR: 'true'
     build-commands:
+      - sed -i '/\[patch.crates-io\]/,/^$/d' src-tauri/Cargo.toml
+    
       - npm ci --offline
       - cargo --offline fetch --manifest-path src-tauri/Cargo.toml --verbose
       - npm run --offline tauri build -- --bundles deb --config '{"bundle":{"createUpdaterArtifacts":false}}'
