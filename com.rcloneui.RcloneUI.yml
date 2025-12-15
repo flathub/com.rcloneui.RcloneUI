@@ -29,8 +29,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/rclone-ui/rclone-ui.git
-        tag: v3.1.1
-        commit: 39e56d5cfcc0374f56e38c865d51b949b9be4c68
+        tag: v3.1.2
+        commit: 1f601960f62956a422067adaee5352c32f77c62b
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
@@ -48,6 +48,7 @@ modules:
         TAURI_LINUX_AYATANA_APPINDICATOR: 'true'
     build-commands:
       - sed -i '/\[patch.crates-io\]/,/^$/d' src-tauri/Cargo.toml
+      - cp src-tauri/Cargo.flatpak.lock src-tauri/Cargo.lock
     
       - npm ci --offline
       - cargo --offline fetch --manifest-path src-tauri/Cargo.toml --verbose
