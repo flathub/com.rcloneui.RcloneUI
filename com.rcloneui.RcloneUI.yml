@@ -16,6 +16,9 @@ finish-args:
   - --share=network
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.kde.StatusNotifierWatcher
+  - --talk-name=org.freedesktop.portal.Desktop
+  - --talk-name=org.com_rclone_ui.SingleInstance
+  - --own-name=org.com_rclone_ui.SingleInstance
   - --filesystem=xdg-run/tray-icon:create
 
 modules:
