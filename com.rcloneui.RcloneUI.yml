@@ -24,9 +24,6 @@ modules:
     build-commands:
       - /usr/lib/sdk/node22/install-sdk.sh
   - shared-modules/libayatana-appindicator/libayatana-appindicator-gtk3.json
-  - type: file
-    url: https://github.com/tauri-apps/binary-releases/releases/download/apprun-old/AppRun-x86_64
-    sha256: f30140a43a0a59e46db21bdefdf749b9e9f2c6946e92afabbacf98b8ae73fb4f
   - name: rclone-ui
     buildsystem: simple
     sources:
@@ -39,6 +36,10 @@ modules:
           tag-pattern: ^v([\d.]+)$
       - node-sources.json
       - cargo-sources.json
+      - type: file
+        url: https://github.com/tauri-apps/binary-releases/releases/download/apprun-old/AppRun-x86_64
+        sha256: f30140a43a0a59e46db21bdefdf749b9e9f2c6946e92afabbacf98b8ae73fb4f
+        dest-filename: AppRun-x86_64
 
     build-options:
       append-path: /usr/lib/sdk/rust-stable/bin/:/usr/lib/sdk/node22/bin
