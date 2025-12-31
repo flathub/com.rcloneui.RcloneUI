@@ -49,36 +49,34 @@ modules:
     build-commands:
       - sed -i '/\[patch.crates-io\]/,/^$/d' src-tauri/Cargo.toml
       - cp src-tauri/Cargo.flatpak.lock src-tauri/Cargo.lock
-
+      
       - npm ci --offline
       - cargo --offline fetch --manifest-path src-tauri/Cargo.toml --verbose
-      - npm run --offline tauri build -- --bundles deb --config '{"bundle":{"createUpdaterArtifacts":false}}'
+      - npm run --offline tauri build -- --bundles appimage --config '{"bundle":{"createUpdaterArtifacts":false}}'
 
+      - chmod +x src-tauri/target/release/bundle/appimage/*.AppImage
+      - src-tauri/target/release/bundle/appimage/*.AppImage --appimage-extract
 
-      - mkdir extracted
-      - ar -x src-tauri/target/release/bundle/deb/*.deb --output extracted
-      - tar -C extracted -xf extracted/data.tar.gz
-
-      - install -Dm755 extracted/usr/bin/'Rclone UI' /app/bin/rclone-ui
+      - install -Dm755 squashfs-root/usr/bin/'Rclone UI' /app/bin/rclone-ui
 
       - mkdir -p /app/lib/com.rcloneui.RcloneUI
-      - cp -r extracted/usr/lib/'Rclone UI'/. /app/lib/com.rcloneui.RcloneUI
+      - cp -r squashfs-root/usr/lib/'Rclone UI'/. /app/lib/com.rcloneui.RcloneUI
       - find /app/lib/com.rcloneui.RcloneUI -type f -exec chmod 644 {} \;
 
-      - install -Dm644 extracted/usr/lib/'Rclone UI'/icons/favicon/icon.png /app/lib/'Rclone
+      - install -Dm644 squashfs-root/usr/lib/'Rclone UI'/icons/favicon/icon.png /app/lib/'Rclone
         UI'/icons/favicon/icon.png
-      - install -Dm644 extracted/usr/lib/'Rclone UI'/icons/favicon/icon-light.png
+      - install -Dm644 squashfs-root/usr/lib/'Rclone UI'/icons/favicon/icon-light.png
         /app/lib/'Rclone UI'/icons/favicon/icon-light.png
 
-      - install -Dm644 extracted/usr/share/icons/hicolor/128x128/apps/'Rclone UI.png'
+      - install -Dm644 squashfs-root/usr/share/icons/hicolor/128x128/apps/'Rclone UI.png'
         /app/share/icons/hicolor/128x128/apps/com.rcloneui.RcloneUI.png
-      - install -Dm644 extracted/usr/share/icons/hicolor/32x32/apps/'Rclone UI.png'
+      - install -Dm644 squashfs-root/usr/share/icons/hicolor/32x32/apps/'Rclone UI.png'
         /app/share/icons/hicolor/32x32/apps/com.rcloneui.RcloneUI.png
-      - install -Dm644 extracted/usr/share/icons/hicolor/256x256@2/apps/'Rclone UI.png'
+      - install -Dm644 squashfs-root/usr/share/icons/hicolor/256x256@2/apps/'Rclone UI.png'
         /app/share/icons/hicolor/256x256@2/apps/com.rcloneui.RcloneUI.png
-      - install -Dm644 extracted/usr/share/flatpak.metainfo.xml /app/share/metainfo/com.rcloneui.RcloneUI.metainfo.xml
+      - install -Dm644 squashfs-root/usr/share/flatpak.metainfo.xml /app/share/metainfo/com.rcloneui.RcloneUI.metainfo.xml
 
-      - install -Dm644 extracted/usr/share/applications/'Rclone UI.desktop' /app/share/applications/com.rcloneui.RcloneUI.desktop
+      - install -Dm644 squashfs-root/usr/share/applications/'Rclone UI.desktop' /app/share/applications/com.rcloneui.RcloneUI.desktop
       - desktop-file-edit --set-key=Exec --set-value=rclone-ui /app/share/applications/com.rcloneui.RcloneUI.desktop
       - desktop-file-edit --set-key=Icon --set-value=com.rcloneui.RcloneUI /app/share/applications/com.rcloneui.RcloneUI.desktop
       - desktop-file-edit --set-key=Comment --set-value='Cross-platform desktop GUI
