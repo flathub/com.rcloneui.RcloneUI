@@ -24,6 +24,10 @@ modules:
     build-commands:
       - /usr/lib/sdk/node22/install-sdk.sh
   - shared-modules/libayatana-appindicator/libayatana-appindicator-gtk3.json
+  - type: file
+    url: https://github.com/tauri-apps/binary-releases/releases/download/apprun-old/AppRun-x86_64
+    sha256: f30140a43a0a59e46db21bdefdf749b9e9f2c6946e92afabbacf98b8ae73fb4f
+    dest-filename: AppRun-x86_64
   - name: rclone-ui
     buildsystem: simple
     sources:
@@ -47,6 +51,10 @@ modules:
         TAURI_CLI_NO_DEV_SERVER_WAIT: 'true'
         TAURI_LINUX_AYATANA_APPINDICATOR: 'true'
     build-commands:
+      - mkdir -p $XDG_CACHE_HOME/tauri
+      - cp AppRun-x86_64 $XDG_CACHE_HOME/tauri/
+      - chmod +x $XDG_CACHE_HOME/tauri/AppRun-x86_64
+
       - sed -i '/\[patch.crates-io\]/,/^$/d' src-tauri/Cargo.toml
       - cp src-tauri/Cargo.flatpak.lock src-tauri/Cargo.lock
       
