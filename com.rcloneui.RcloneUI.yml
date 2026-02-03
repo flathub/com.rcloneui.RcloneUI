@@ -29,8 +29,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/rclone-ui/rclone-ui.git
-        tag: v3.3.0
-        commit: aabec0a8139dfeeb1fd69af403034e44e4343f86
+        tag: v3.4.0
+        commit: a4fb9b45dae85ac51c9a42e827e05e155f2d6da6
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
@@ -69,8 +69,8 @@ modules:
         UI'/icons/favicon/icon.png
       - install -Dm644 extracted/usr/lib/'Rclone UI'/icons/favicon/icon-light.png
         /app/lib/'Rclone UI'/icons/favicon/icon-light.png
-      - install -Dm644 extracted/usr/lib/'Rclone UI'/icons/favicon/icon-padded.png /app/lib/'Rclone
-        UI'/icons/favicon/icon-padded.png
+      - install -Dm644 extracted/usr/lib/'Rclone UI'/icons/favicon/icon-padded.png
+        /app/lib/'Rclone UI'/icons/favicon/icon-padded.png
       - install -Dm644 extracted/usr/lib/'Rclone UI'/icons/favicon/icon-light-padded.png
         /app/lib/'Rclone UI'/icons/favicon/icon-light-padded.png
 
