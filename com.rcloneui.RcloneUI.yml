@@ -17,6 +17,8 @@ finish-args:
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.kde.StatusNotifierWatcher
   - --filesystem=xdg-run/tray-icon:create
+  - --filesystem=xdg-download
+  - --filesystem=xdg-documents
 
 modules:
   - name: node22
@@ -29,8 +31,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/rclone-ui/rclone-ui.git
-        tag: v3.3.0
-        commit: aabec0a8139dfeeb1fd69af403034e44e4343f86
+        tag: v3.4.0
+        commit: a4fb9b45dae85ac51c9a42e827e05e155f2d6da6
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
