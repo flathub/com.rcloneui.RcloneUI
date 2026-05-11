@@ -31,8 +31,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/rclone-ui/rclone-ui.git
-        tag: v3.5.3
-        commit: 77e330cfaf5a1232c1c5a372e16483c6e9ef6ca0
+        tag: v3.5.4
+        commit: 3993563cb62293ee859304e21aaa983d5be2345f
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
@@ -67,14 +67,12 @@ modules:
       - cp -r extracted/usr/lib/'Rclone UI'/. /app/lib/com.rcloneui.RcloneUI
       - find /app/lib/com.rcloneui.RcloneUI -type f -exec chmod 644 {} \;
 
-      - install -Dm644 extracted/usr/lib/'Rclone UI'/icons/favicon/icon.png /app/lib/'Rclone
-        UI'/icons/favicon/icon.png
+      - install -Dm644 extracted/usr/lib/'Rclone UI'/icons/favicon/icon.png
+        /app/lib/'Rclone UI'/icons/favicon/icon.png
       - install -Dm644 extracted/usr/lib/'Rclone UI'/icons/favicon/icon-light.png
         /app/lib/'Rclone UI'/icons/favicon/icon-light.png
-      - install -Dm644 extracted/usr/lib/'Rclone UI'/icons/favicon/icon-padded.png
-        /app/lib/'Rclone UI'/icons/favicon/icon-padded.png
-      - install -Dm644 extracted/usr/lib/'Rclone UI'/icons/favicon/icon-light-padded.png
-        /app/lib/'Rclone UI'/icons/favicon/icon-light-padded.png
+      - install -Dm644 extracted/usr/lib/'Rclone UI'/icons/favicon/icon-color.png
+        /app/lib/'Rclone UI'/icons/favicon/icon-color.png
 
       - install -Dm644 extracted/usr/share/icons/hicolor/128x128/apps/'Rclone UI.png'
         /app/share/icons/hicolor/128x128/apps/com.rcloneui.RcloneUI.png
