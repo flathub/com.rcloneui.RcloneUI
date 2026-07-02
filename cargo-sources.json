@@ -7449,14 +7449,14 @@
     {
         "type": "archive",
         "archive-type": "tar-gzip",
-        "url": "https://static.crates.io/crates/tinyfiledialogs/tinyfiledialogs-3.9.1.crate",
-        "sha256": "e25fa0bc43a6566e2cc6d7ac96df3fa5a57beba34445bead1b368ba8fe9ca568",
-        "dest": "cargo/vendor/tinyfiledialogs-3.9.1"
+        "url": "https://static.crates.io/crates/tinyfiledialogs-rs/tinyfiledialogs-rs-3.21.3.crate",
+        "sha256": "0c18ab3f79ad8deb90fa577326e01de4759d812893a94722c980642c73ac1274",
+        "dest": "cargo/vendor/tinyfiledialogs-rs-3.21.3"
     },
     {
         "type": "inline",
-        "contents": "{\"package\": \"e25fa0bc43a6566e2cc6d7ac96df3fa5a57beba34445bead1b368ba8fe9ca568\", \"files\": {}}",
-        "dest": "cargo/vendor/tinyfiledialogs-3.9.1",
+        "contents": "{\"package\": \"0c18ab3f79ad8deb90fa577326e01de4759d812893a94722c980642c73ac1274\", \"files\": {}}",
+        "dest": "cargo/vendor/tinyfiledialogs-rs-3.21.3",
         "dest-filename": ".cargo-checksum.json"
     },
     {
